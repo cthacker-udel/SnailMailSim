@@ -10,6 +10,15 @@ export const MailReducerFunction = (state: State, action: MailAction): State => 
                 draft.messages = [...draft.messages, action.payload.newMessage];
             });
         }
+        case "removeMessage": {
+
+            return produce(state, (draft) => {
+
+                draft.messages = draft.messages.filter((eachMessage, index) => index !== action.payload.removalIndex);
+                
+            })
+
+        }
         default: {
             return { ...state };
         }

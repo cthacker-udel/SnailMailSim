@@ -14,8 +14,6 @@ export const SendMailPanel = (props: any): JSX.Element => {
     const [loadingAnimation, setLoadingAnimation] = useState<boolean>(false);
     let navigate = useNavigate();
 
-    console.log('props = ', Object.values(props));
-
     const clickHandler = () => {
 
         dispatch({type: "addMessage", payload: {
@@ -74,7 +72,7 @@ export const SendMailPanel = (props: any): JSX.Element => {
                                 setTimeout(() => {
                                     setLoadingAnimation(false);
                                     clickHandler();
-                                }, 2000);
+                                }, 1000);
                             }}>{loadingAnimation ? <Spinner animation="border" /> : "Send Message"}</Button>
                     </Col>
                 </Row>

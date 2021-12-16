@@ -3,6 +3,7 @@ import { Mail } from "./Mail";
 export interface State{
 
     messages: Mail[],
-    newMessage: Mail
+    newMessage: Mail,
+    removalIndex: number
 
 };

@@ -6,5 +6,6 @@ export const initialState: State = {
         sender: '',
         message: '',
         time: new Date()
-    }
+    },
+    removalIndex: 0
 };
