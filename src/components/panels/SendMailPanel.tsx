@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Col, Form, Button, Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { UseDispatchContext } from "../../reducer/UseDispatchContext";
 import { UseStateContext } from "../../reducer/UseStateContext";
 import { MainPageNavbar } from "../util/MainPageNavbar";
 
-export const SendMailPanel = (): JSX.Element => {
+export const SendMailPanel = (props: any): JSX.Element => {
 
     const [sender, setSender] = useState<string>('');
     const [message, setMessage] = useState<string>('');
     const { state } = UseStateContext();
     const { dispatch } = UseDispatchContext();
+    const [loadingAnimation, setLoadingAnimation] = useState<boolean>(false);
+    let navigate = useNavigate();
+
+    console.log('props = ', Object.values(props));
 
     const clickHandler = () => {
 
@@ -21,7 +25,9 @@ export const SendMailPanel = (): JSX.Element => {
                 message: message,
                 time: new Date()
             }
-        }})
+        }});
+        navigate('/mainpage');
+        
 
     };
 
@@ -63,9 +69,13 @@ export const SendMailPanel = (): JSX.Element => {
                 </Row>
                 <Row>
                     <Col>
-                        <Link to="/mainpage">
-                            <Button variant="primary" onClick={() => clickHandler()}>Send Message</Button>
-                        </Link>
+                            <Button variant="primary" onClick={() => {
+                                setLoadingAnimation(true);
+                                setTimeout(() => {
+                                    setLoadingAnimation(false);
+                                    clickHandler();
+                                }, 5000);
+                            }}>{loadingAnimation ? <Spinner animation="border" /> : "Send Message"}</Button>
                     </Col>
                 </Row>
             </Container>
