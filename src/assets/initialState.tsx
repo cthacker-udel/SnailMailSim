@@ -1,5 +1,10 @@
 import { State } from "../interfaces/State";
 
 export const initialState: State = {
-    messages: []
+    messages: [],
+    newMessage: {
+        sender: '',
+        message: '',
+        time: new Date()
+    }
 };

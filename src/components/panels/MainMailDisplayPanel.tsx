@@ -1,6 +1,5 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { UseDispatchContext } from "../../reducer/UseDispatchContext";
 import { UseStateContext } from "../../reducer/UseStateContext";
 
 export const MainMailDisplayPanel = (): JSX.Element => {
@@ -15,6 +14,7 @@ export const MainMailDisplayPanel = (): JSX.Element => {
                     <tr>
                         <th>Sender</th>
                         <th>Message</th>
+                        <th>Time</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,8 +23,11 @@ export const MainMailDisplayPanel = (): JSX.Element => {
                         state.messages.map((eachMessage) => {
                             return(
                             <>
-                                <td>{eachMessage.sender}</td>
-                                <td>{eachMessage.message}</td>
+                                <tr>
+                                    <td>{eachMessage.sender}</td>
+                                    <td>{eachMessage.message}</td>
+                                    <td>{eachMessage.time.toUTCString()}</td>
+                                </tr>
                             </>
                             );
                         })
