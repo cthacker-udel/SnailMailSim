@@ -20,11 +20,19 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/send-mail" element={
-                    <SendMailPanel />
+                    <DispatchContext.Provider value={dispatchValue}>
+                        <StateContext.Provider value={stateValue}>
+                            <SendMailPanel />
+                        </StateContext.Provider>
+                    </DispatchContext.Provider>
                 }
                 />
                 <Route path="/remove-mail" element={
-                    <RemoveMailPanel />
+                    <DispatchContext.Provider value={dispatchValue}>
+                        <StateContext.Provider value={stateValue}>
+                            <RemoveMailPanel />
+                        </StateContext.Provider>
+                    </DispatchContext.Provider>
                 }
                 />
                 <Route path="/mainpage" element={
