@@ -20,15 +20,13 @@ export const MainMailDisplayPanel = (): JSX.Element => {
                 <tbody>
 
                     {
-                        state.messages.map((eachMessage) => {
+                        state.messages.map((eachMessage, index) => {
                             return(
-                            <>
-                                <tr>
+                                <tr key={index}>
                                     <td>{eachMessage.sender}</td>
                                     <td>{eachMessage.message}</td>
                                     <td>{eachMessage.time.toUTCString()}</td>
                                 </tr>
-                            </>
                             );
                         })
                     }

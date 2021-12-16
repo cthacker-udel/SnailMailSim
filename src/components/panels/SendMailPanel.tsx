@@ -74,7 +74,7 @@ export const SendMailPanel = (props: any): JSX.Element => {
                                 setTimeout(() => {
                                     setLoadingAnimation(false);
                                     clickHandler();
-                                }, 5000);
+                                }, 2000);
                             }}>{loadingAnimation ? <Spinner animation="border" /> : "Send Message"}</Button>
                     </Col>
                 </Row>
