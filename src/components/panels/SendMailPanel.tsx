@@ -6,13 +6,7 @@ export const SendMailPanel = () => {
 
     return(
         <>
-            <Container>
-                <Row>
-                    <Col>
-                        <MainPageNavbar />
-                    </Col>
-                </Row>
-            </Container>
+            <MainPageNavbar />
         </>
     );
 
